@@ -1,36 +1,39 @@
-extern crate rand;
 
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
+use std::io::{self, Write};
+mod guessing_game;
 
 fn main() {
-    println!("Guess the number!");
-
-    let secret_number = rand::thread_rng().gen_range(1, 101);
 
     loop {
-        println!("Please input your guess.");
+        println!("Select your example to run");
+        println!("0. Exit");
+        println!("1. Guessing Game");
+        println!("2. Read File");
+        println!("3. JSON Serialization and Merge");
+        
+        print!(">> ");
+        io::stdout().flush().unwrap();
+        
+        let mut selected_option = String::new();
 
-        let mut guess = String::new();
-
-        io::stdin().read_line(&mut guess)
+        io::stdin().read_line(&mut selected_option)
             .expect("Failed to read line");
 
-        let guess: u32 = match guess.trim().parse(){
+        let selected_option: i32 = match selected_option.trim().parse(){
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => -1,
         };
 
-        println!("You guessed: {}", guess);
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less    => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal   => {
-                println!("You win!");
-                break;
-            }
+        println!("");
+        
+        match selected_option {
+            0 => break,
+            1 => guessing_game::run_example(),
+            2 => println!("Not implemented"),
+            3 => println!("Not implemented"),
+            _ => continue,
         }
+
+        println!("");
     }
 }
