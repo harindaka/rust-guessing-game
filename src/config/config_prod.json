@@ -1,0 +1,14 @@
+{
+    "applicationKeys": ["prodKey1", "prodKey2"],    
+    "apis": {
+        "default": {
+            "baseAddress": "https://api.com",
+            "timeout": 30000            
+        }
+    },
+    "data": {
+        "relational": {
+            "host": "dev_rdbms"
+        }
+    }
+}

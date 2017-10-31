@@ -1,0 +1,21 @@
+{
+    "applicationKeys": ["devKey1", "devKey2"],
+    "apis": {
+        "default": {
+            "baseAddress": "https://dev.api.com",
+            "timeout": 45000,
+            "endpoints": {
+                "retrieveUsers": { 
+                    "method": "GET",
+                    "url": "/users"
+                }
+            }
+        }
+    },
+    "data": {
+        "relational": {
+            "host": "dev_rdbms",
+            "port": 3306
+        }
+    }
+}

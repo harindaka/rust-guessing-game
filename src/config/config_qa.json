@@ -1,0 +1,14 @@
+{
+    "applicationKeys": ["qaKey1", "qaKey2"],    
+    "apis": {
+        "default": {
+            "baseAddress": "https://qa.api.com",
+            "timeout": 45000            
+        }
+    },
+    "data": {
+        "relational": {
+            "host": "qa_rdbms"
+        }
+    }
+}
