@@ -1,15 +1,10 @@
-//extern crate serde;
+extern crate serde;
 extern crate serde_json;
-
-//#[macro_use]
-//extern crate serde_derive;
-
-use self::serde_json::Error;
 
 #[derive(Serialize, Deserialize)]
 pub struct Config {
     applicationKeys: Vec<String>,
-    apis: APIs
+    apis: APIs,
     data: Data
 }
 
@@ -19,7 +14,7 @@ pub struct APIs {
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct API {
+pub struct APIs_Default {
     baseAddress: String,
     timeout: i32,
     endpoints: API_Endpoints_Default

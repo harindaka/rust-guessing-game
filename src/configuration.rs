@@ -1,11 +1,7 @@
-//extern crate serde;
+extern crate serde;
 extern crate serde_json;
 
-//#[macro_use]
-//extern crate serde_derive;
-mod config;
-use self::serde_json::Error;
-
+use config;
 
 pub fn build_config(){
     let config_build = include_str!("config/build.json");
@@ -13,7 +9,7 @@ pub fn build_config(){
     let config_qa = include_str!("config/config_qa.json");
     let config_prod = include_str!("config/config_prod.json");
 
-    let deserialized_config:config::Config = serde_json::from_str(config)?;
+    let deserialized_config: config::Config = serde_json::from_str(config);
 
     
     println!("{}", config_build);
