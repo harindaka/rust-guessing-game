@@ -2,42 +2,50 @@ extern crate serde;
 extern crate serde_json;
 
 #[derive(Serialize, Deserialize)]
+#[derive(Debug)]
+#[serde(rename_all = "camelCase")]
 pub struct Config {
-    applicationKeys: Vec<String>,
+    application_keys: Vec<String>,
     apis: APIs,
     data: Data
 }
 
 #[derive(Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct APIs {
-    default: APIs_Default
+    default: APIsDefault
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct APIs_Default {
-    baseAddress: String,
+#[derive(Debug)]
+pub struct APIsDefault {
+    base_address: String,
     timeout: i32,
-    endpoints: API_Endpoints_Default
+    endpoints: APIEndpointsDefault
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct API_Endpoint {
+#[derive(Debug)]
+pub struct APIEndpoint {
     method: String,
     url: String
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct API_Endpoints_Default{
-    retrieveUsers: API_Endpoint
+#[derive(Debug)]
+pub struct APIEndpointsDefault{
+    retrieve_users: APIEndpoint
 }
 
 #[derive(Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct Data {
-    relational: Data_Relational
+    relational: DataRelational
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct Data_Relational {
+#[derive(Debug)]
+pub struct DataRelational {
     host: String,
     port: i32
 }
