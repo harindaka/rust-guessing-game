@@ -1,0 +1,19 @@
+@commandline Thank you for your suggestion. I'm new to rust. I tried doing this,
+```
+let mut json_one = json!(include_str!("one.json")); //json #1 above
+let mut json_two = json!(include_str!("two.json")); //json #2 above
+let map_one = json_one.as_object_mut().unwrap();
+let map_two = json_two.as_object_mut().unwrap();
+```
+But on the next line,
+`map_one.extend(&map_two);`
+
+I get a compile error which reads,
+```
+error[E0277]: the trait bound `&&mut serde_json::Map<std::string::String, serde_json::Value>: std::iter::Iterator` is not satisfied
+  --> src/configuration.rs:27:16
+   |
+27 |     map_one.extend(&map_two);
+   |              ^^^^^^ `&&mut serde_json::Map<std::string::String, serde_json::Value>` is not an iterator; maybe try calling `.iter()` or a similar method
+```
+I'd be grateful if someone can point out what I'm doing wrong here.
