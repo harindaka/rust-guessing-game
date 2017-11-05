@@ -7,7 +7,7 @@ extern crate serde_json;
 use std::io::{self, Write};
 mod guessing_game;
 mod configuration;
-mod config;
+mod config { pub mod config; }
 
 fn main() {
 
